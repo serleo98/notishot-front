@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const Login = () => {
   const cookies = new Cookies();
   const history = useHistory();
-  const API = "https://notishot.herokuapp.com/api/v1/login";
+  const API = "https://notishotapi.herokuapp.com/api/v1/login";
   const [state, setState] = React.useState({
     form: {
       username: "",
@@ -39,7 +39,7 @@ const Login = () => {
         cookies.set("nick_name", response.data.data.nick_name, { path: "/" });
         cookies.set("role_key", response.data.data.role.role_key, { path: "/" });
         cookies.set("token", response.data.data.token, { path: "/" });
-        window.location.href = "/";
+        window.location.href = "/users";
       })
       .catch((error) => {
         console.log(error);

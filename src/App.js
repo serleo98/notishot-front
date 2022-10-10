@@ -8,6 +8,7 @@ import TraerNoticias from "./components/TraerNoticias";
 import Users from "./components/admin/Users";
 import Register from "./components/login/Register";
 import { Redactar } from "./components/redactor/Redactar";
+import GestionarUsuario from "./components/admin/GestionarUsuario";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/redactar" component={Redactar} />
+              <Route path="/gestion" component={GestionarUsuario} />
             </Switch>
           </div>
         </div>

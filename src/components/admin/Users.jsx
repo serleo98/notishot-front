@@ -11,7 +11,7 @@ const Users = () => {
       history.push("/");
     };
   }
-  const API = "http://notishot.herokuapp.com/api/v1/admin/usuarios";
+  const API = "https://notishotapi.herokuapp.com/api/v1/admin/usuarios";
   const [users, setUsers] = useState([]);
   async function usuariosTraidos() {
     const users = await axios
@@ -44,7 +44,12 @@ const Users = () => {
   return [users];
 };
 const TraerUsers = () => {
+  const history = useHistory();
   const [users] = Users();
+  const [items, setItems] = React.useState()
+  const enviarRegistrar = (e) => {
+    history.push('/gestion/'+ e.target.id);
+  };
   return (
     <div className="users-table table-wrapper">
       <table className="posts-table">
@@ -109,7 +114,7 @@ const TraerUsers = () => {
                         {user.role.role_key}
                       </span>
                     </td>
-                  ) : user.role.id === 3 ? (
+                  ) : user.role_id === 3 ? (
                     <td>
                       <span className="badge-pending">
                         {user.role.role_key}
@@ -124,30 +129,12 @@ const TraerUsers = () => {
                   )}
                   <td>{user.created_at}</td>
                   <td>
-                    <span className="p-relative">
-                      <button
-                        className="dropdown-btn transparent-btn"
-                        type="button"
-                        title="More info"
-                      >
-                        <div className="sr-only">More info</div>
-                        <i
-                          data-feather="more-horizontal"
-                          aria-hidden="true"
-                        ></i>
-                      </button>
-                      <ul className="users-item-dropdown dropdown">
-                        <li>
-                          <a href="##">Editar</a>
-                        </li>
-                        <li>
-                          <a href="##">Suspender</a>
-                        </li>
-                        <li>
-                          <a href="##">Eliminar</a>
-                        </li>
-                      </ul>
-                    </span>
+                    <button
+                    className="form-btn primary-default-btn transparent-btn mt-0 pd-0"
+                    onClick={enviarRegistrar}
+                    id={user.id}
+                    > Gestionar
+                    </button>
                   </td>
                 </tr>
               </>

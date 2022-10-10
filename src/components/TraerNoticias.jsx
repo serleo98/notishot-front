@@ -6,7 +6,7 @@ import axios from "axios";
 function TraerNotas() {
   const cookies = new Cookies();
   const history = useHistory();
-  const API = "https://notishot.herokuapp.com/api/v1/public/notas-portada";
+  const API = "https://notishotapi.herokuapp.com/api/v1/public/notas-portada";
   const [notas, setNotas] = useState([]);
   async function notasTraidas() {
     const notas = await axios

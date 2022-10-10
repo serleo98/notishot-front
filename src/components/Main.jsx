@@ -12,7 +12,7 @@ const Users = () => {
       history.push("/");
     };
   }
-  const API = "http://notishot.herokuapp.com/api/v1/admin/usuarios";
+  const API = "https://notishotapi.herokuapp.com/api/v1/admin/usuarios";
   const [users, setUsers] = useState([]);
   async function usuariosTraidos() {
     const users = await axios
