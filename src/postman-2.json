@@ -1,0 +1,640 @@
+{
+	"info": {
+		"_postman_id": "908595b4-397c-4d48-a624-f6561037a871",
+		"name": "base api",
+		"description": "API BASE MADE WITH LARAVEL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true,
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\" : \"2a212@apibase.com\",\r\n    \"password\" : \"apibase\",\r\n    \"c_password\" : \"apibase\",\r\n    \"nick_name\" : \"juliweich\",\r\n    \"role_id\" : \"5\",\r\n    \"profile\" : {\r\n        \"name\" : \"jorgelois\",\r\n        \"last_name\" : \"jorgiño\",\r\n        \"cel_phone\" : \"+5493454199555\",\r\n        \"phone\" : null,\r\n        \"profile_photo\" : null,\r\n        \"facebook_url\" : null,\r\n        \"instagram_url\" : null,\r\n        \"twitter_url\" : null,\r\n        \"blog_personal_url\" : null,\r\n        \"city\" : \"Rosario\",\r\n        \"province\" : \"Santa Fe\",\r\n        \"country\" :  \"Argentina\",\r\n        \"postal_code\" : \"2000\",\r\n        \"accepted\" : false,\r\n        \"accepted_by\" : null,\r\n        \"accepted_at\" : null\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}admin/usuarios",
+							"host": [
+								"{{api_url}}admin"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Show list of users"
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_local}}admin/usuarios",
+							"host": [
+								"{{api_local}}admin"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Show user data\r\n\r\n-- returns 404 if not user finded\r\n--if user id is of an superadmin user and current api logged user is not a superadmin throws permissions fail message"
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nick_name\" : \"jorgiño 666\",\r\n    \"email\" : \"jorgeee@apibase.com\",\r\n    \"password\" : \"apibase\",\r\n    \"c_password\" : \"apibase\",\r\n    \"role_id\" : 5,\r\n    \"profile\" : {\r\n        \"name\" : \"raul\",\r\n        \"last_name\" : \"fundacion fln\",\r\n        \"cel_phone\" : \"+5493454199555\",\r\n        \"phone\" : \"5493454199555\",\r\n        \"profile_photo\" : null,\r\n        \"facebook_url\" : null,\r\n        \"instagram_url\" : null,\r\n        \"twitter_url\" : null,\r\n        \"blog_personal_url\" : null,\r\n        \"city\" : \"Rosario\",\r\n        \"province\" : \"Santa Fe\",\r\n        \"country\" :  \"Argentina\",\r\n        \"postal_code\" : \"2000\",\r\n        \"accepted\" : false,\r\n        \"accepted_by\" : null,\r\n        \"accepted_at\" : null\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "{{api_local}}admin/usuarios",
+							"host": [
+								"{{api_local}}admin"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Store api endpoint"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true,
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nick_name\": \"fafafa 666\",\r\n        \"email\": \"jorgitoatualizado@apibase.com\",\r\n        \"password\" : \"apibase\",\r\n        \"c_password\" : \"apibase\",\r\n        \"role_id\" : 5,\r\n        \"created_at\": \"2021-02-15\",\r\n        \"profile\": {\r\n            \"name\": \"pepe le pipau\",\r\n            \"cel_phone\": 1212121,\r\n            \"postal_code\" : \"2012\"       \r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_local}}admin/usuarios/9",
+							"host": [
+								"{{api_local}}admin"
+							],
+							"path": [
+								"usuarios",
+								"9"
+							]
+						},
+						"description": "Update Api Endpoint"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "Application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_local}}admin/usuarios/8",
+							"host": [
+								"{{api_local}}admin"
+							],
+							"path": [
+								"usuarios",
+								"8"
+							]
+						},
+						"description": "Delete User Endpoint"
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Notes",
+			"item": [
+				{
+					"name": "Store",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "shalala",
+									"type": "text"
+								},
+								{
+									"key": "location",
+									"value": "Rosario, Santa Fe",
+									"type": "text"
+								},
+								{
+									"key": "body",
+									"value": "pasa como loco con resource",
+									"type": "text"
+								},
+								{
+									"key": "resource",
+									"type": "file",
+									"src": "/C:/Users/ceped/Downloads/WhatsApp Image 2022-09-21 at 8.35.20 PM.jpeg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_local}}writer/notes",
+							"host": [
+								"{{api_local}}writer"
+							],
+							"path": [
+								"notes"
+							]
+						},
+						"description": "Api request for store Notes\nrole required redactor"
+					},
+					"response": []
+				},
+				{
+					"name": "Index",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{api_local}}writer/notes",
+							"host": [
+								"{{api_local}}writer"
+							],
+							"path": [
+								"notes"
+							]
+						},
+						"description": "Api return Notes user \n\nnote user's auth\nrole required lector"
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{api_local}}writer/notes/2",
+							"host": [
+								"{{api_local}}writer"
+							],
+							"path": [
+								"notes",
+								"2"
+							]
+						},
+						"description": "Api return Note find id \n\nnote user's auth\nrole required lector"
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_id\" : 1,\r\n    \"title\" : \"titulo del 2do redactor atualizado\" ,\r\n    \"location\" : \"Y vamo vamo vamo vamo lakade\",\r\n    \"body\" : \"lo que se le canto escribir al primer redator atualizado\",\r\n        \"resource\" : {\r\n                        \"type\" : \"jpg\" ,\r\n                        \"route\" : \"public/resource/imagenes/20220523012733.jpg\"\r\n\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.1.10/public/api/v1/writer/notes/2",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"10"
+							],
+							"path": [
+								"public",
+								"api",
+								"v1",
+								"writer",
+								"notes",
+								"2"
+							]
+						},
+						"description": "Api return succcess if update succefully \n\nnote user's auth\nrole required redactor"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorizathion}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://notishot.herokuapp.com/api/v1/writer/notes/7",
+							"protocol": "https",
+							"host": [
+								"notishot",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"v1",
+								"writer",
+								"notes",
+								"7"
+							]
+						},
+						"description": "Api return succcess if deleted note are succefully \n\nnote user's auth\nrole required redactor"
+					},
+					"response": []
+				},
+				{
+					"name": "lector note all",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api_url}}writer/notes",
+							"host": [
+								"{{api_url}}writer"
+							],
+							"path": [
+								"notes"
+							]
+						},
+						"description": "Api return All Notes\n\nrole requred : lector"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "default"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user_id\" : 4,\r\n    \"note_id\" : 1,\r\n    \"body\" : \"es un comentario\",\r\n    \"nick_name\" : \"soy Yo\",\r\n    \"status\" : \"aprobado\"\r\n\r\n}"
+						},
+						"url": {
+							"raw": "127.0.1.10/public/api/v1/comentarios/comments",
+							"host": [
+								"127",
+								"0",
+								"1",
+								"10"
+							],
+							"path": [
+								"public",
+								"api",
+								"v1",
+								"comentarios",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "client_id",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "client_secret",
+						"value": "XWGFyJzkQ1Wkx7kxUDGl9RwER0Noxl1NGaZeBKw1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"redactor@apibase.com\",\r\n    \"password\" :\"apibase\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_local}}login",
+					"host": [
+						"{{api_local}}login"
+					]
+				},
+				"description": "Login endpoint\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorizathion}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://notishot.herokuapp.com/api/v1/logout",
+					"protocol": "https",
+					"host": [
+						"notishot",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					]
+				},
+				"description": "Logout endpoint"
+			},
+			"response": []
+		},
+		{
+			"name": "Login PROD",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "client_id",
+						"value": "1",
+						"type": "default"
+					},
+					{
+						"key": "client_secret",
+						"value": "Rwx9nd35IfvK9t2lbsNeFksdPccb1bvP8t1SpjO7",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"admin@apibase.com\",\r\n    \"password\" :\"apibase\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://notishotapi.herokuapp.com/api/v1/login",
+					"protocol": "https",
+					"host": [
+						"notishotapi",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

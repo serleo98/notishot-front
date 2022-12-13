@@ -26,7 +26,8 @@ function App() {
               <Route path="/login" component={Login} />
               <Route path="/register" component={Register} />
               <Route path="/redactar" component={Redactar} />
-              <Route path="/gestion" component={GestionarUsuario} />
+              <Route path="/gestion/:id" render={(props) => <GestionarUsuario {...props} />}/> 
+              
             </Switch>
           </div>
         </div>

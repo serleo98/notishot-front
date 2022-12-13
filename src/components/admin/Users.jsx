@@ -6,12 +6,13 @@ import axios from "axios";
 const Users = () => {
   const cookies = new Cookies();
   const history = useHistory();
-  if (cookies.get("token") !== "1") {
-    const mandarPortal = () => {
-      history.push("/");
-    };
-  }
-  const API = "https://notishotapi.herokuapp.com/api/v1/admin/usuarios";
+  //if (cookies.get("token") !== "1") {
+  //  const mandarPortal = () => {
+  //    history.push("/");
+  //  };
+  //}
+  const API =
+    "https://notishot2-production.up.railway.app/api/v1/admin/usuarios";
   const [users, setUsers] = useState([]);
   async function usuariosTraidos() {
     const users = await axios
@@ -25,7 +26,7 @@ const Users = () => {
           return {
             nick_name: item.nick_name,
             email: item.email,
-            role: item.role,
+            role: item.role_id,
             created_at: item.created_at,
             id: item.id,
           };
@@ -46,9 +47,9 @@ const Users = () => {
 const TraerUsers = () => {
   const history = useHistory();
   const [users] = Users();
-  const [items, setItems] = React.useState()
+  const [items, setItems] = React.useState();
   const enviarRegistrar = (e) => {
-    history.push('/gestion/'+ e.target.id);
+    history.push("/gestion/" + e.target.id);
   };
   return (
     <div className="users-table table-wrapper">
@@ -130,10 +131,12 @@ const TraerUsers = () => {
                   <td>{user.created_at}</td>
                   <td>
                     <button
-                    className="form-btn primary-default-btn transparent-btn mt-0 pd-0"
-                    onClick={enviarRegistrar}
-                    id={user.id}
-                    > Gestionar
+                      className="form-btn primary-default-btn transparent-btn mt-0 pd-0"
+                      onClick={enviarRegistrar}
+                      id={user.id}
+                    >
+                      {" "}
+                      Gestionar
                     </button>
                   </td>
                 </tr>

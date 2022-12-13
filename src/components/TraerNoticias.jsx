@@ -6,7 +6,7 @@ import axios from "axios";
 function TraerNotas() {
   const cookies = new Cookies();
   const history = useHistory();
-  const API = "https://notishotapi.herokuapp.com/api/v1/public/notas-portada";
+  const API = "https://notishot2-production.up.railway.app/api/v1/public/notas-portada";
   const [notas, setNotas] = useState([]);
   async function notasTraidas() {
     const notas = await axios
@@ -31,6 +31,7 @@ function TraerNotas() {
         console.log(error);
       });
     setNotas(notas);
+    console.log(notas)
   }
   useEffect(() => {
     notasTraidas();
@@ -42,7 +43,7 @@ const TraerNoticias = () => {
   const [notas] = TraerNotas();
   return (
     <>
-      <div className="container">
+    <div className="container">
         <div className="text-center">
           <div className="row justify-content-center">
             <div className="card col-xs-12 col-sm-9 col-md-4 col-lx-4 ">

@@ -6,7 +6,8 @@ import axios from "axios";
 const GestionarUsuario = () => {
   const cookies = new Cookies();
   const history = useHistory();
-  const API = "https://notishotapi.herokuapp.com/api/v1/admin/usuarios";
+  const API = "https://notishot2-production.up.railway.app/api/v1/admin/usuarios";
+
   const [users, setUsers] = useState([]);
   async function usuariosTraidos() {
     const users = await axios
@@ -39,8 +40,12 @@ const GestionarUsuario = () => {
   return [users];
 };
 const Mostrar = () => {
+  const [users] = GestionarUsuario()
   return (
-    <div>GestionarUsuario</div>
+    <div>
+      aca
+      {users.id}
+    </div>
     )
   }   
 

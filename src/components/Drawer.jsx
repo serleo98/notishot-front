@@ -96,18 +96,18 @@ const Drawer = () => {
               <span className="sidebar-user-img">
                 <picture>
                   <source
-                    srcset="./img/avatar/avatar-illustrated-01.webp"
+                    srcset="./img/avatar/ailin.png"
                     type="image/webp"
                   />
                   <img
-                    src="./img/avatar/avatar-illustrated-01.png"
+                    src="./img/avatar/ailin.png"
                     alt="User name"
                   />
                 </picture>
               </span>
               <div className="sidebar-user-info">
-                <span className="sidebar-user__title">Nafisa Sh.</span>
-                <span className="sidebar-user__subtitle">Support manager</span>
+                <span className="sidebar-user__title">Alejandro D Arfeli</span>
+                <span className="sidebar-user__subtitle">Proyect Manager</span>
               </div>
             </a>
           </div>

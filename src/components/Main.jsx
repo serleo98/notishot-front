@@ -12,7 +12,7 @@ const Users = () => {
       history.push("/");
     };
   }
-  const API = "https://notishotapi.herokuapp.com/api/v1/admin/usuarios";
+  const API = "https://notishot2-production.up.railway.app/api/v1/admin/usuarios";
   const [users, setUsers] = useState([]);
   async function usuariosTraidos() {
     const users = await axios
@@ -26,7 +26,7 @@ const Users = () => {
           return {
             nick_name: item.nick_name,
             email: item.email,
-            role: item.role,
+            role: item.role_id,
             created_at: item.created_at,
             id: item.id,
           };
@@ -248,10 +248,10 @@ const Main = () => {
             </div>
             <div className="col-lg-3">
               <article className="customers-wrapper">
-                <p className="customers__title">
+                <p className="customers__title" style={{margin: '7px', padding: '2px'}}>
                   Nuevos Usuarios <span>+958</span>
                 </p>
-                <p className="customers__date">28 dias.</p>
+               
                 <picture>
                   <source srcset="./img/svg/customers.svg" type="image/webp" />
                   <img src="./img/svg/customers.svg" alt="" />

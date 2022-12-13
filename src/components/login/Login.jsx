@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 const Login = () => {
   const cookies = new Cookies();
   const history = useHistory();
-  const API = "https://notishotapi.herokuapp.com/api/v1/login";
+  const API = "https://notishot2-production.up.railway.app/api/v1/login";
   const [state, setState] = React.useState({
     form: {
       username: "",
